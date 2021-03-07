@@ -24,6 +24,10 @@ class Configurator {
       return PlatformType.Android;
     } else if (Platform.isWindows) {
       return PlatformType.Windows;
+    } else if (Platform.isIOS) {
+      return PlatformType.IOS;
+    } else if (Platform.isMacOS) {
+      return PlatformType.MacOS;
     } else {
       return PlatformType.None;
     }
@@ -37,8 +41,6 @@ class Configurator {
         return WindowsFabric();
       case PlatformType.Android:
         return AndroidFabric();
-        break;
-
       case PlatformType.None:
       default:
         throw ("Not app OS.");
@@ -46,4 +48,4 @@ class Configurator {
   }
 }
 
-enum PlatformType { None, Windows, Web, Android }
+enum PlatformType { None, Windows, Web, Android, IOS, MacOS }
